@@ -2,9 +2,13 @@ Piece [][] grid1 = new Piece[8][8];
 
 void white1setup(){
   for(int i = 0; i < 8; i++){
-    Piece x = new Pawn("white",i,1);
-    grid1[1][i]=x;
+    grid1[1][i]=new Pawn("white",i,1);
   }
+  /*grid1[0][3]= new King("white",0,3);
+  grid1[0][4]= new Queen("white",0,4);*/
+  grid1[0][0]=new Rook("white",0,0);
+  grid1[0][7]=new Rook("white",0,7);
+  
 }
 
 
