@@ -14,8 +14,8 @@ void white1setup() {
   for (int i = 0; i < 8; i++) {
     grid1[1][i]=new Pawn("white", i, 1);
   }
-  /*grid1[0][3]= new King("white",0,3);
-   grid1[0][4]= new Queen("white",0,4);*/
+  /*grid1[0][3]= new King("white",4,0);*/
+   grid1[0][4]= new Queen("white",3,0);
   grid1[0][0]=new Rook("white", 0, 0);
   grid1[0][7]=new Rook("white", 7, 0);
   /*grid1[0][6]=new Knight("white",6,0);
@@ -28,8 +28,8 @@ void black1setup() {
   for (int i = 0; i < 8; i++) {
     grid1[6][i]=new Pawn("black", i, 6);
   }
-  /*grid1[7][4]= new King("black",4,7);
-   grid1[7][3]= new Queen("black",3,7);*/
+  /*grid1[7][4]= new King("black",4,7);*/
+   grid1[7][3]= new Queen("black",3,7);
   grid1[7][0]=new Rook("black", 0, 7);
   grid1[7][7]=new Rook("black", 7, 7);
   /*grid1[7][6]=new Knight("black",6,7);
@@ -42,8 +42,8 @@ void white2setup() {
   for (int i = 0; i < 8; i++) {
     grid2[1][i]=new Pawn("white", i, 1);
   }
-  /*grid2[0][3]= new King("white",0,3);
-   grid2[0][4]= new Queen("white",0,4);*/
+  /*grid2[0][3]= new King("white",0,3);*/
+   grid2[0][4]= new Queen("white",0,4);
   grid2[0][0]=new Rook("white", 0, 0);
   grid2[0][7]=new Rook("white", 7, 0);
   /*grid2[0][6]=new Knight("white",6,0);
@@ -56,8 +56,8 @@ void black2setup() {
   for (int i = 0; i < 8; i++) {
     grid2[6][i]=new Pawn("black", i, 6);
   }
-  /*grid2[7][4]= new King("black",4,7);
-   grid2[7][3]= new Queen("black",3,7);*/
+  /*grid2[7][4]= new King("black",4,7);*/
+   grid2[7][3]= new Queen("black",3,7);
   grid2[7][0]=new Rook("black", 0, 7);
   grid2[7][7]=new Rook("black", 7, 7);
   /*grid2[7][6]=new Knight("black",6,7);

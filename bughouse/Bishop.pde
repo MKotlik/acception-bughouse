@@ -46,7 +46,7 @@ public class Bishop extends Piece {
         }
       }
     }
-    if (CCol > 0 && cRow > 0) {
+    if (cCol > 0 && cRow > 0) {
       for (int i =0; i < cCol; i++) {
         if (grid[getX()+i][getY()+i] != null) {
           return false;
