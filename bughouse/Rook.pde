@@ -3,9 +3,9 @@ public class Rook extends Piece {
     this("white", 0, 0);
   }
 
-  public  void display() {
+  public  void display(int shift) {
     PImage f=loadImage("image/"+getColor().substring(0, 1)+"rook.jpg");
-    image(f, (float)getX()*50+12.5, (float)getY()*50+12.5, 25, 25);
+    image(f, (float)getX()*50+12.5+shift, (float)getY()*50+12.5, 25, 25);
   }
   
   public Rook(String clr, int x_cor, int y_cor) {

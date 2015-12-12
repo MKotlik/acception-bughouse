@@ -93,7 +93,7 @@ public abstract class Piece {
     return temp;
   }
   
-  public abstract void display();
+  public abstract void display(int shift);
   
   /**Validates the moveability of each action chosen by the action
    *@param 2D array of the grid, with positions of pieces
