@@ -1,6 +1,6 @@
 //Globals
-Piece [][] grid1 = new Piece[8][8];
-Piece [][] grid2 = new Piece[8][8];
+Piece [][] grid1 = new Piece [8][8];
+Piece [][] grid2 = new Piece [8][8];
 ArrayList<Piece> whiteInv;
 ArrayList<Piece> blackInv;
 String nextMove; 

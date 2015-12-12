@@ -1,4 +1,4 @@
-public abstract class Piece {
+public abstract class Piece{
   private String clr;
   private int xCor, yCor;
   private boolean isAlive; 
@@ -100,8 +100,8 @@ public abstract class Piece {
       takePiece(grid, targetRow, targetCol);
       yCor = targetRow;
       xCor = targetCol;
-      grid[targetRow][targetCol] = this;
-      grid[targetRow - dRow][targetCol - dCol] = null;
+      grid[targetCol][targetRow] = this;
+      grid[targetCol - dCol][targetRow - dRow] = null;
       println("I was here");
     }
   }
