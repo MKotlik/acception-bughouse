@@ -9,6 +9,7 @@ boolean lock;
 ArrayList<Piece> piecesToUpdate;
 Piece pieceSelected;
 String message;
+PFont f;
 
 void white1setup() {
   for (int i = 0; i < 8; i++) {
@@ -18,8 +19,8 @@ void white1setup() {
   grid1[0][4]= new Queen("white", 3, 0);
   grid1[0][0]=new Rook("white", 0, 0);
   grid1[0][7]=new Rook("white", 7, 0);
-  /*grid1[0][6]=new Knight("white",6,0);
-  grid1[0][1]=new Knight("white",1,0);*/
+  grid1[0][6]=new Knight("white",6,0);
+  grid1[0][1]=new Knight("white",1,0);
   grid1[0][5]=new Bishop("white", 5, 0);
   grid1[0][2]=new Bishop("white", 2, 0);
 }
@@ -32,8 +33,8 @@ void black1setup() {
   grid1[7][3]= new Queen("black", 3, 7);
   grid1[7][0]=new Rook("black", 0, 7);
   grid1[7][7]=new Rook("black", 7, 7);
-  /*grid1[7][6]=new Knight("black",6,7);
-   grid1[7][1]=new Knight("black",1,7);*/
+  grid1[7][6]=new Knight("black",6,7);
+  grid1[7][1]=new Knight("black",1,7);
   grid1[7][5]=new Bishop("black", 5, 7);
   grid1[7][2]=new Bishop("black", 2, 7);
 }
@@ -66,9 +67,19 @@ void black2setup() {
   grid2[7][2]=new Bishop("black", 2, 7);
 }
 
+void delay(int delay){
+  int time = millis();
+  while(millis()-time<=delay);
+}
+
 void setup() {
-  size(400, 400);
+  size(400, 500);
   Grid a = new Grid();
+  new MsgBox();
+  f = createFont("Arial",16,true);
+  textFont(f,36);
+  fill(255);
+  text("Welcome!",100,450);
   white1setup();
   black1setup();
   for (int i=0; i<8; i++) {
@@ -122,6 +133,11 @@ void draw2() {
 void draw() {
   clear();
   new Grid();
+  new MsgBox();
+  f = createFont("Arial",16,true);
+  textFont(f,36);
+  fill(255);
+  text("Welcome!",100,450);
   for (int i=0; i<8; i++) {
     for (int i2 = 0; i2 < grid1[i].length; i2++) {
       if (grid1[i][i2] != null) {

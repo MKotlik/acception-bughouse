@@ -93,14 +93,14 @@ public abstract class Piece{
    *@param int dy: the x coordinate of target square/piece
    *@return Piece : the Piece that was taken, or a null object
    */
-  public void move(Piece[][]grid,int targetCol, int targetRow) {
-    int dRow = targetRow - xCor;
-    int dCol = targetCol - yCor;
+  public void move(Piece[][]grid,int targetRow, int targetCol) {
+    int dRow = targetCol - xCor;
+    int dCol = targetRow - yCor;
     if(true){
-      //takePiece(grid, targetRow, targetCol);
+      takePiece(grid, targetRow, targetCol);
       grid[yCor][xCor] = null;
-      xCor = targetRow;
-      yCor = targetCol;
+      yCor = targetRow;
+      xCor = targetCol;
       grid[yCor][xCor] = this;
       println("I was here");
     }
