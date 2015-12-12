@@ -1,0 +1,19 @@
+Main Class/File/Executable:
+     Globals
+	ArrayList<piece> pieceGrid;
+	ArrayList<piece> whiteInv;
+	ArrayList<piece> blackInv;
+	String nextMove;
+	
+	
+     Game setup
+	Defines & initializes grid object
+	Defines & initializes pieces
+		Creates an ArrayList<piece> pieceGrid, fills starting positions with defined & initialied pieces
+		Running construtor of every piece creates corresponding icon img objects and displays icons at their position in window.
+		Creates inventory ArrayList<piece> for each player.
+		Initializes nextMove to "white"
+     Game cycling
+     	  draw() continuously updates positions of objects on grid. Iterates through the pieces arraylist,
+
+	  
