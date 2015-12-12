@@ -4,7 +4,11 @@ public class Pawn extends Piece {
     this("white", 0, 0);
   }
 
-
+  public  void display(){
+    PImage f=loadImage("image/"+getColor().substring(0,1)+"pawn.jpg");
+    image(f,(float)getX()*50+12.5,(float)getY()*50+12.5,25,25);
+  }
+  
   public Pawn(String clr, int x, int y) {
     super(clr, x, y);
   }

@@ -92,7 +92,9 @@ public abstract class Piece {
     array[x_cor][y_cor] = null;
     return temp;
   }
-
+  
+  public abstract void display();
+  
   /**Validates the moveability of each action chosen by the action
    *@param 2D array of the grid, with positions of pieces
    *@param int dx is the change in the x direction
