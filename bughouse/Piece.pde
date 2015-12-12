@@ -80,7 +80,7 @@ public abstract class Piece {
   public Piece move(Piece[][]grid,int dx, int dy) {
     Piece moved;
     if (validate(grid,dx,dy)) {
-      moved = takePiece(getX()+dx, getY()+dy); 
+      moved = takePiece(grid,getX()+dx, getY()+dy); 
       changeX(x_cor+dx);
       changeY(y_cor+dy);
       return moved;
