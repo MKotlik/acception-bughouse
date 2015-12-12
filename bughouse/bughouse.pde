@@ -135,8 +135,8 @@ void draw() {
 void mouseClicked() {
   println("click");
   if (!lock) {
-    int xPos = (int)((mouseX - 12.5)/50);
-    int yPos = (int)((mouseY - 12.5)/50);
+    int xPos = (int)((mouseX)/50);
+    int yPos = (int)((mouseY)/50);
     Piece clickedPiece = grid1[yPos][xPos];
     if (clickedPiece != null && clickedPiece.getColor().equals("white") && nextMove.equals("white") && currentAction.equals("select")) {
       pieceSelected = clickedPiece;
