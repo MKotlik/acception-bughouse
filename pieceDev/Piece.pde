@@ -87,12 +87,18 @@ public abstract class Piece{
 	}
     }
     
+    public Piece takePiece(Piece[][]array,int x_cor, int y_cor){
+	Piece temp = array[x_cor][y_cor];
+	array[x_cor][y_cor];
+	return temp;
+    }
+
     /**Validates the moveability of each action chosen by the action
      *@param 2D array of the grid, with positions of pieces
-     *@param int x_pos is the x position you want the piece to move to
-     *@param int y_pos is the y position you want the piece to move to
+     *@param int dx is the change in the x direction
+     *@param int dy is the change in the y direction
      */
-    public abstract boolean validate(Piece[][]array,int x_pos, int y_pos);
+    public abstract boolean validate(Piece[][]array,int dx, int dy);
     
     
 }
