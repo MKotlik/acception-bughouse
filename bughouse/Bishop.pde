@@ -27,28 +27,28 @@ public class Bishop extends Piece {
     }
     if (cCol < 0 && cCol< 0) {
       for (int i =0; i > cCol; i--) {
-        if (grid[getY()+i][getX()+i] != null) {
+        if (grid[getX()+i][getY()+i] != null) {
           return false;
         }
       }
     }
     if (cCol < 0 && cRow > 0) {
       for (int i =0; i > cCol; i--) {
-        if (grid[getY()-i][getX()+i] != null) {
+        if (grid[getX()-i][getY()+i] != null) {
           return false;
         }
       }
     }
     if (cCol > 0 && cRow < 0) {
       for (int i =0; i > cRow; i--) {
-        if (grid[getY()+i][getX()-i] != null) {
+        if (grid[getX()+i][getY()-i] != null) {
           return false;
         }
       }
     }
     if (cCol > 0 && cRow > 0) {
       for (int i =0; i < cCol; i++) {
-        if (grid[getY()+i][getX()+i] != null) {
+        if (grid[getX()+i][getY()+i] != null) {
           return false;
         }
       }

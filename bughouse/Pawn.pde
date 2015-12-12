@@ -19,8 +19,6 @@ public class Pawn extends Piece {
    *@param int dx : horizontal change
    */
   public boolean validate(Piece[][]grid, int cRow, int cCol) {
-    return true;
-    /*
     if (cRow != 1 || !(cCol == -1 || cCol ==1) ) {
       return false;
     }
@@ -36,5 +34,5 @@ public class Pawn extends Piece {
       }
       return true;
     }
-  }*/
+  }
 }

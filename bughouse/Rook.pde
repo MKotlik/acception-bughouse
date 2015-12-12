@@ -19,13 +19,13 @@ public class Rook extends Piece {
     if ( cCol == 0) {
       if (cRow < 0) {
         for (int i =0; i > cRow; i--) {
-          if (grid[getY()+i][getX()] != null) {
+          if (grid[getX()][getY()+i] != null) {
             return false;
           }
         }
       } else {
         for (int i=0; i< cRow; i++) {
-          if (grid[getY()+i][getX()] != null) {
+          if (grid[getX()][getY()+i] != null) {
             return false;
           }
         }
@@ -37,13 +37,13 @@ public class Rook extends Piece {
     if ( cRow == 0) {
       if (cCol < 0) {
         for (int i =0; i > cCol; i--) {
-          if (grid[getY()][getX()+i] != null) {
+          if (grid[getX()+i][getY()] != null) {
             return false;
           }
         }
       } else {
         for (int i=0; i< cCol; i++) {
-          if (grid[getY()][getX()+i] != null) {
+          if (grid[getX()+i][getY()] != null) {
             return false;
           }
         }
@@ -52,5 +52,5 @@ public class Rook extends Piece {
     }
     return true;
   }
-}
+  
 }

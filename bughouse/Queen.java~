@@ -1,0 +1,14 @@
+/*public class Queen extends Piece{
+    public Queen(){
+	this("white",0,0);
+    }
+    public Queen(String clr, int x_cor, int y_cor){
+	super(clr, x_cor, y_cor);
+    }
+
+    public boolean directionInvalid(int dx, int dy){
+
+    }
+
+}
+*/
