@@ -1,6 +1,6 @@
 public abstract class Piece {
   private String clr;
-  private int x_cor, y_cor;
+  private int xCor, yCor;
   private boolean isAlive; 
 
   /**Returns the color of the piece as either "black" or "white";
@@ -12,25 +12,25 @@ public abstract class Piece {
 
 
   /**Returns the X-coordinate of the piece
-   *@return int x_cor
+   *@return int xCor
    */
   public int getX() {
-    return x_cor;
+    return xCor;
   }
 
 
   /**Returns the Y-coordinate of the piece
-   *@return int y_cor
+   *@return int yCor
    */
   public int getY() {
-    return y_cor;
+    return yCor;
   }
 
-  /**Returns an array of (x_cor,y_cor) of the piece's position on the board
-   *@return int[] Coords { x_cor, y_cor }
+  /**Returns an array of (xCor,yCor) of the piece's position on the board
+   *@return int[] Coords { xCor, yCor }
    */
   /*    public int[] getCoord(){
-   	return { x_cor, y_cor};
+   	return { xCor, yCor};
    }
    */
   /** Returns whether the piece is alive or not
@@ -40,18 +40,18 @@ public abstract class Piece {
     return isAlive;
   }
 
-  /**Changes the x_cor
+  /**Changes the xCor
    *@param int x: the new x-coordinate
    */
   private void changeX(int x) {
-    x_cor = x;
+    xCor = x;
   }
 
-  /**Changes the y_cor
+  /**Changes the yCor
    *@param int y: the new y-coordinate
    */
   private void changeY(int y) {
-    y_cor = y;
+    yCor = y;
   }
 
   /**Default constructor, not to be used
@@ -67,33 +67,51 @@ public abstract class Piece {
    */
   public Piece(String clr, int x, int y) {
     this.clr = clr;
-    x_cor = x;  
-    y_cor = y;
+    xCor = x;  
+    yCor = y;
   }
 
 
-  /** Moves the piece across a board.
-   *@param int dx: the change in x
-   *@param int dy: the change in y
-   *@return boolean moved? : returns if the piece has moved.
-   */
-  public Piece move(Piece[][]grid,int dx, int dy) {
+/**
+  public Piece moveOld(Piece[][]grid,int dx, int dy) {
     Piece taken;
     if (validate(grid,dx,dy)) {
       taken = takePiece(grid,getX()+dx, getY()+dy); 
-      changeX(x_cor+dx);
-      changeY(y_cor+dy);
-      grid[x_cor][y_cor] = this;
-      grid[x_cor-dx][y_cor-dy] = null;
+      changeX(xCor+dx);
+      changeY(yCor+dy);
+      grid[xCor][yCor] = this;
+      grid[xCor-dx][yCor-dy] = null;
+      return taken;
+    } else {
+      return null;
+    }
+  }
+*/
+
+  /** Moves the piece across a board. Takes in grid (not pixel!) coordinates
+   *@param int targetY: the y coordinate of target square/piece
+   *@param int dy: the x coordinate of target square/piece
+   *@return Piece : the Piece that was taken, or a null object
+   */
+  public Piece move(Piece[][]grid,int targetY, int targetX) {
+    Piece taken;
+    int dx = targetX - xCor;
+    int dy = targetY - yCor;
+    if (validate(grid,dy,dx)) {
+      taken = takePiece(grid, targetY, targetX); 
+      xCor = targetX;
+      yCor = targetY;
+      grid[xCor][yCor] = this;
+      grid[targetX][targetY] = null;
       return taken;
     } else {
       return null;
     }
   }
 
-  public Piece takePiece(Piece[][]array, int x_cor, int y_cor) {
-    Piece temp = array[x_cor][y_cor];
-    array[x_cor][y_cor] = null;
+  public Piece takePiece(Piece[][]array, int yCor, int xCor) {
+    Piece temp = array[xCor][yCor];
+    array[xCor][yCor] = null;
     return temp;
   }
   
