@@ -96,7 +96,7 @@ public abstract class Piece{
   public void move(Piece[][]grid,int targetRow, int targetCol) {
     int dRow = targetRow - xCor;
     int dCol = targetCol - yCor;
-    if(true){
+    if(validate(grid,dCol,dRow)){
       takePiece(grid, targetRow, targetCol);
       yCor = targetRow;
       xCor = targetCol;

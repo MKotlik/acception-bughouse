@@ -12,7 +12,7 @@ public class King extends Piece {
   }
 
   public boolean validate(Piece[][]grid, int cRow, int cCol) {
-    if (!(cRow == -1 || cRow == 1 || cRow == 0) ||  !(cCol == 1 && cCol == -1 && cCol == 0)) {
+    if (!(cRow == -1 || cRow == 1 || cRow == 0) && !(cCol == 1 || cCol == -1 || cCol == 0)) {
       return false;
     }
     if (cRow == 0 && cCol ==0) {
