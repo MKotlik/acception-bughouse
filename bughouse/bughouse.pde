@@ -98,7 +98,17 @@ void setup() {
 }
 
 void draw() {
+  if(grid1[1][1] == null){
+     println("nulled"); 
+  }
   if (mousePressed==true) {
-    grid1[1][1].move(grid1, -1, 0);
+     grid1[1][1].move(grid1, 2, 1);
+  }
+  for (int i=0; i<8; i++) {
+    for (int i2 = 0; i2 < grid1[i].length; i2++) {
+      if (grid1[i][i2] != null) {
+        grid1[i][i2].display(0);
+      }
+    }
   }
 }
