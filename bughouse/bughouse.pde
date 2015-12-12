@@ -15,7 +15,7 @@ void white1setup() {
     grid1[1][i]=new Pawn("white", i, 1);
   }
   /*grid1[0][3]= new King("white",4,0);*/
-   grid1[0][4]= new Queen("white",3,0);
+  grid1[0][4]= new Queen("white", 3, 0);
   grid1[0][0]=new Rook("white", 0, 0);
   grid1[0][7]=new Rook("white", 7, 0);
   /*grid1[0][6]=new Knight("white",6,0);
@@ -29,7 +29,7 @@ void black1setup() {
     grid1[6][i]=new Pawn("black", i, 6);
   }
   /*grid1[7][4]= new King("black",4,7);*/
-   grid1[7][3]= new Queen("black",3,7);
+  grid1[7][3]= new Queen("black", 3, 7);
   grid1[7][0]=new Rook("black", 0, 7);
   grid1[7][7]=new Rook("black", 7, 7);
   /*grid1[7][6]=new Knight("black",6,7);
@@ -43,7 +43,7 @@ void white2setup() {
     grid2[1][i]=new Pawn("white", i, 1);
   }
   /*grid2[0][3]= new King("white",0,3);*/
-   grid2[0][4]= new Queen("white",0,4);
+  grid2[0][4]= new Queen("white", 0, 4);
   grid2[0][0]=new Rook("white", 0, 0);
   grid2[0][7]=new Rook("white", 7, 0);
   /*grid2[0][6]=new Knight("white",6,0);
@@ -57,7 +57,7 @@ void black2setup() {
     grid2[6][i]=new Pawn("black", i, 6);
   }
   /*grid2[7][4]= new King("black",4,7);*/
-   grid2[7][3]= new Queen("black",3,7);
+  grid2[7][3]= new Queen("black", 3, 7);
   grid2[7][0]=new Rook("black", 0, 7);
   grid2[7][7]=new Rook("black", 7, 7);
   /*grid2[7][6]=new Knight("black",6,7);
@@ -97,12 +97,13 @@ void setup() {
   lock = false;
 }
 
-void draw() {
-  if(grid1[1][1] == null){
-     println("nulled"); 
+//This is working
+void draw2() {
+  if (grid1[6][2] == null) {
+    println("nulled");
   }
   if (mousePressed==true) {
-     grid1[1][1].move(grid1, 2, 1);
+    grid1[6][2].move(grid1, 4, 5);
   }
   for (int i=0; i<8; i++) {
     for (int i2 = 0; i2 < grid1[i].length; i2++) {
@@ -110,5 +111,26 @@ void draw() {
         grid1[i][i2].display(0);
       }
     }
+  }
+}
+
+//This is in development
+void draw() {
+  for (int i=0; i<8; i++) {
+    for (int i2 = 0; i2 < grid1[i].length; i2++) {
+      if (grid1[i][i2] != null) {
+        grid1[i][i2].display(0);
+      }
+    }
+  }
+  lock = false;
+}
+
+void mouseClicked(){
+  if (!lock){
+     float xPos = mouseX;
+     float yPos = mouseY;
+     float xPosPix = (xPos - 12.5)/50;
+     float yPosPix = (yPos - 12.5)/50;
   }
 }

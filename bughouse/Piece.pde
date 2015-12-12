@@ -98,8 +98,8 @@ public abstract class Piece {
     int dCol = targetCol - yCor;
     if(true){
       takePiece(grid, targetRow, targetCol);
-      xCor = targetRow;
-      yCor = targetCol;
+      yCor = targetRow;
+      xCor = targetCol;
       grid[targetRow][targetCol] = this;
       grid[targetRow - dRow][targetCol - dCol] = null;
       println("I was here");
