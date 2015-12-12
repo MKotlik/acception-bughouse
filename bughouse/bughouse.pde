@@ -87,7 +87,14 @@ void setup() {
       }
     }
   }
-  
+  whiteInv = new ArrayList<Piece>();
+  blackInv = new ArrayList<Piece>();
+  piecesToUpdate = new ArrayList<Piece>();
+  pieceSelected = null;
+  message = "White player, select a piece to move";
+  nextMove = "white";
+  currentAction = "select";
+  lock = false;
 }
 
 void draw() {

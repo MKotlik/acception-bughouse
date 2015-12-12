@@ -17,8 +17,8 @@ Main Class/File/Executable:
 	Defines & initializes pieces
 		Creates a piece[][] pieceGrid, fills starting positions with defined & initialied pieces
 		Running construtor of every piece creates corresponding icon img objects and displays icons at their position in window.
-		Creates inventory ArrayList<piece> for each player.
-		Initializes nextMove to "white"
+	Creates inventory ArrayList<piece> for each player.
+	Initializes nextMove to "white"
 	Initializes currentAction to "select"
 	Initializes lock to false
 	Initializes piecesToUpdate; (initially 0 pieces)
