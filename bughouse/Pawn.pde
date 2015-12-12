@@ -19,14 +19,14 @@ public class Pawn extends Piece {
    *@param int dx : horizontal change
    */
   public boolean validate(Piece[][]grid, int cRow, int cCol) {
-    if (!(cRow == -1 || cRow == 1 || cRow == 0) && !(cCol == 1 || cCol == -1 || cCol == 0)) {
+    if (cRow != 1 || !(cCol == -1 || cCol ==1) ) {
       return false;
     }
-    if (cRow == 0 && cCol ==0) {
-      return false;
-    }
-    if (grid[getX()+cRow][getY()+cCol] != null) {
-          if (grid[getX()+cRow][getY()+cCol].getColor().equals(this.getColor())) {
+    if (grid[getX()+cRow][getY()+cCol] == null) {
+      return true;
+    } else {
+      if (grid[getX()+cRow][getY()+cCol] != null) {
+        if (grid[getX()+cRow][getY()+cCol].getColor().equals(this.getColor())) {
           return false;
         } else {
           return true;
@@ -34,4 +34,5 @@ public class Pawn extends Piece {
       }
       return true;
     }
+  }
 }
