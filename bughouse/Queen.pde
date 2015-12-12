@@ -20,20 +20,20 @@ public class Queen extends Piece {
       return false;
     }
 
-    public boolean validate(Piece[][]grid, int dx, int dy) {
+    public boolean validate(Piece[][]grid, int dy, int dx) {
       if ( directionInvalid(dx, dy)) {
         return false;
       }
       if ( dx == 0) {
         if (dy < 0) {
           for (int i =0; i > dy; i--) {
-            if (grid[getX()][getY()+i] != null) {
+            if (grid[getY()+i][getX()] != null) {
               return false;
             }
           }
         } else {
           for (int i=0; i< dy; i++) {
-            if (grid[getX()][getY()+i] != null) {
+            if (grid[getY()+i][getX()] != null) {
               return false;
             }
           }
@@ -45,13 +45,13 @@ public class Queen extends Piece {
       if ( dy == 0) {
         if (dx < 0) {
           for (int i =0; i > dx; i--) {
-            if (grid[getX()+i][getY()] != null) {
+            if (grid[getY()][getX()+i] != null) {
               return false;
             }
           }
         } else {
           for (int i=0; i< dx; i++) {
-            if (grid[getX()+i][getY()] != null) {
+            if (grid[getY()][getX()+i] != null) {
               return false;
             }
           }
@@ -61,28 +61,28 @@ public class Queen extends Piece {
 
       if (dx < 0 && dy < 0) {
         for (int i =0; i > dx; i--) {
-          if (grid[getX()+i][getY()+i] != null) {
+          if (grid[getY()+i][getX()+i] != null) {
             return false;
           }
         }
       }
       if (dx < 0 && dy > 0) {
         for (int i =0; i > dx; i--) {
-          if (grid[getX()+i][getY()-i] != null) {
+          if (grid[getY()-i][getX()+i] != null) {
             return false;
           }
         }
       }
       if (dx > 0 && dy < 0) {
         for (int i =0; i > dy; i--) {
-          if (grid[getX()-i][getY()+i] != null) {
+          if (grid[getY()+i][getX()-i] != null) {
             return false;
           }
         }
       }
       if (dx > 0 && dy > 0) {
         for (int i =0; i < dy; i++) {
-          if (grid[getX()+i][getY()+i] != null) {
+          if (grid[getY()+i][getX()+i] != null) {
             return false;
           }
         }
