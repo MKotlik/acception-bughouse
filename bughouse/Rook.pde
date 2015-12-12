@@ -12,7 +12,7 @@ public class Rook extends Piece {
     super(clr, x_cor, y_cor);
   }
 
-  public boolean validate(Piece[][]grid, int dx, int dy) {
+  public boolean validate(Piece[][]grid, int dy, int dx) {
     if ( dx != 0 ^ dy != 0) {
       return false;
     }
@@ -29,10 +29,6 @@ public class Rook extends Piece {
             return false;
           }
         }
-      }
-      if (grid[getX()+dx][getY()+dy] != null) {
-        takePiece(grid, getX()+dx, getY()+dy);
-        return true;
       }
       return true;
     }
@@ -51,10 +47,6 @@ public class Rook extends Piece {
             return false;
           }
         }
-      }
-      if (grid[getX()+dx][getY()+dy] != null) {
-        takePiece(grid, getX()+dx, getY()+dy);
-        return true;
       }
       return true;
     }

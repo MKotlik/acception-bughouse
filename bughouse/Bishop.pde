@@ -21,7 +21,7 @@ public class Bishop extends Piece {
     return false;
   }
 
-  public boolean validate(Piece[][]grid, int dx, int dy) {
+  public boolean validate(Piece[][]grid, int dy, int dx) {
     if (directionInvalid(dx, dy)) {
       return false;
     }
@@ -52,10 +52,6 @@ public class Bishop extends Piece {
           return false;
         }
       }
-    }
-    if (grid[getX()+dx][getY()+dy] != null) {
-      takePiece(grid, getX()+dx, getY()+dy);
-      return true;
     }
     return true;
   }

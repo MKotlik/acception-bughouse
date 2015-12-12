@@ -15,10 +15,10 @@ public class Pawn extends Piece {
 
   /**Validates a Pawn's movement
    *@param int[][] grid
-   *@param int dx : change in x
-   *@param int dy : change in y
+   *@param int dy : vertical change
+   *@param int dx : horizontal change
    */
-  public boolean validate(Piece[][]grid, int dx, int dy) {
+  public boolean validate(Piece[][]grid, int dy, int dx) {
     if (dy != 1 || !(dx == -1 || dx ==1) ) {
       return false;
     }
@@ -29,7 +29,6 @@ public class Pawn extends Piece {
         if (grid[getX()+dx][getY()+dy].getColor().equals(this.getColor())) {
           return false;
         } else {
-          takePiece(grid, getX()+dx, getY()+dy);
           return true;
         }
       }

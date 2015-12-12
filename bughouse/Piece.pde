@@ -77,13 +77,15 @@ public abstract class Piece {
    *@param int dy: the change in y
    *@return boolean moved? : returns if the piece has moved.
    */
-  public boolean move(Piece[][]grid,int dx, int dy) {
+  public Piece move(Piece[][]grid,int dx, int dy) {
+    Piece moved;
     if (validate(grid,dx,dy)) {
+      moved = takePiece(getX()+dx, getY()+dy); 
       changeX(x_cor+dx);
       changeY(y_cor+dy);
-      return true;
+      return moved;
     } else {
-      return false;
+      return null;
     }
   }
 
