@@ -10,4 +10,8 @@ void white1setup(){
 void setup(){
   size(900,400);
   Grid a = new Grid();
+  white1setup();
+  for (int i=0; i<8;i++){
+    white1.get(i).display();
+  }
 }
