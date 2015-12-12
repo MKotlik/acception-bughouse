@@ -15,7 +15,7 @@ Main Class/File/Executable:
      Game setup
 	Defines & initializes grid object
 	Defines & initializes pieces
-		Creates an ArrayList<piece> pieceGrid, fills starting positions with defined & initialied pieces
+		Creates a piece[][] pieceGrid, fills starting positions with defined & initialied pieces
 		Running construtor of every piece creates corresponding icon img objects and displays icons at their position in window.
 		Creates inventory ArrayList<piece> for each player.
 		Initializes nextMove to "white"
