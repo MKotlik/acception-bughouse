@@ -31,7 +31,7 @@ public class Rook extends Piece {
         }
       }
       if (grid[getX()+dx][getY()+dy] != null) {
-        takePiece(getX()+dx, getY()+dy);
+        takePiece(grid, getX()+dx, getY()+dy);
         return true;
       }
       return true;
@@ -53,10 +53,12 @@ public class Rook extends Piece {
         }
       }
       if (grid[getX()+dx][getY()+dy] != null) {
-        takePiece(getX()+dx, getY()+dy);
+        takePiece(grid, getX()+dx, getY()+dy);
         return true;
       }
       return true;
     }
+    return false;
   }
+  
 }
