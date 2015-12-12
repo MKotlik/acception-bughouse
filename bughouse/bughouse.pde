@@ -10,9 +10,9 @@ void white1setup(){
   grid1[0][0]=new Rook("white",0,0);
   grid1[0][7]=new Rook("white",7,0);
   /*grid1[0][6]=new Knight("white",6,0);
-  grid1[0][1]=new Knight("white",1,0);
+  grid1[0][1]=new Knight("white",1,0);*/
   grid1[0][5]=new Bishop("white",5,0);
-  grid1[0][2]=new Bishop("white",2,0);*/
+  grid1[0][2]=new Bishop("white",2,0);
 }
 
 void black1setup(){
@@ -24,9 +24,9 @@ void black1setup(){
   grid1[7][0]=new Rook("black",0,7);
   grid1[7][7]=new Rook("black",7,7);
   /*grid1[7][6]=new Knight("black",6,7);
-  grid1[7][1]=new Knight("black",1,7);
+  grid1[7][1]=new Knight("black",1,7);*/
   grid1[7][5]=new Bishop("black",5,7);
-  grid1[7][2]=new Bishop("black",2,7);*/
+  grid1[7][2]=new Bishop("black",2,7);
 }
 
 void white2setup(){
@@ -38,9 +38,9 @@ void white2setup(){
   grid2[0][0]=new Rook("white",0,0);
   grid2[0][7]=new Rook("white",7,0);
   /*grid2[0][6]=new Knight("white",6,0);
-  grid2[0][1]=new Knight("white",1,0);
+  grid2[0][1]=new Knight("white",1,0);*/
   grid2[0][5]=new Bishop("white",5,0);
-  grid2[0][2]=new Bishop("white",2,0);*/
+  grid2[0][2]=new Bishop("white",2,0);
 }
 
 void black2setup(){
@@ -52,9 +52,9 @@ void black2setup(){
   grid2[7][0]=new Rook("black",0,7);
   grid2[7][7]=new Rook("black",7,7);
   /*grid2[7][6]=new Knight("black",6,7);
-  grid2[7][1]=new Knight("black",1,7);
+  grid2[7][1]=new Knight("black",1,7);*/
   grid2[7][5]=new Bishop("black",5,7);
-  grid2[7][2]=new Bishop("black",2,7);*/
+  grid2[7][2]=new Bishop("black",2,7);
 }
 
 void setup(){
@@ -78,4 +78,10 @@ void setup(){
     }
   }
 }
+}
+
+void draw(){
+  if (mousePressed==true){
+    grid1[1][1].move(grid1,-1,0);
+  }
 }
