@@ -1,9 +1,15 @@
 Main Class/File/Executable:
      Globals
-	ArrayList<piece> pieceGrid;
+	pieces[][] pieceGrid;
 	ArrayList<piece> whiteInv;
 	ArrayList<piece> blackInv;
-	String nextMove;
+	String nextMove; (can be "white" or "black")
+	String currentAction; (can be "select" or "target")
+	boolean lock; (prevents keyPress or mouseClick from having effect until draw() is updated after last event)
+	ArrayList<piece> piecesToUpdate; (the pieces whose icon position needs to be updated)
+	piece pieceSelected;
+	String message; (text to display)
+	
 	
 	
      Game setup
@@ -13,7 +19,65 @@ Main Class/File/Executable:
 		Running construtor of every piece creates corresponding icon img objects and displays icons at their position in window.
 		Creates inventory ArrayList<piece> for each player.
 		Initializes nextMove to "white"
+	Initializes currentAction to "select"
+	Initializes lock to false
+	Initializes piecesToUpdate; (initially 0 pieces)
+	Initializes pieceSelected to null
+	Initializes message to "White player is selecting a piece to move"
+		
      Game cycling
-     	  draw() continuously updates positions of objects on grid. Iterates through the pieces arraylist,
+     
+     	  draw() continuously updates positions of objects on grid.
+	  	 Checks for checkmate and triggers endgame if true.
+	  	 If pieceToUpdate is not null, runs <pieceObj>.update(), resets to null.
+		 If message is not "", displays it, resets to "".
+		 Resets lock to false.
+		 
+          mousePressed()
+		Continues if lock == false
+		Stores mouseX and mouseY.
+		Gets mouseX and mouseY and converts them to pieceGrid coordinates. (maybe runs a helper function, X & Y will be within the range of a box, and we need to map to exact coordinates.)
+		Checks the current state:
+		If white piece selected when nextMove == "white" & currentAction == "select":
+		   Checks that chosen piece has possible moves. If true;
+		   	pieceSelected gets set to chosen piece
+		   	currentAction gets set to "target"
+			message gets set to "White player is selecting a target square"
+		   If no possible moves:
+		      	message gets set to "Please select a piece with possible moves"
+		   If event and state don't match:
+		      	message gests set to "White player, please choose a piece to move"
+		If black piece selected when nextMove == "white" & currentAction == "target":
+		   	Runs pieceSelected.validate(). If true:
+		   	     White inventory adds pieceSelected.takePiece(X,Y)
+			     Coordinates of white pieceSelected updated to new X & Y
+			     pieceSelected added to piecesToUpdate
+			     pieceSelected reset to null
+			     lock gets set to true
+			     nextMove gets set to "black"
+		  	     message gets set to "Black player is selecting a piece to move"
+			If not true:
+			     message gets set to "Piece could not be moved to that square. Please choose another."
+		If black piece selected when nextMove == "black" & currentAction == "select":
+		   Checks that chosen piece has possible moves. If true;
+		   	pieceSelected gets set to chosen piece
+		   	currentAction gets set to "target"
+			message gets set to "Black player is selecting a target square"
+		   If no possible moves:
+		      	message gets set to "Please select a piece with possible moves"
+		   If event and state don't match:
+		      	message gests set to "Black player, please choose a piece to move"
+		If white piece selected when nextMove == "black" & currentAction == "target":
+		   	Runs pieceSelected.validate(). If true:
+		   	     White inventory adds pieceSelected.takePiece(X,Y)
+			     Coordinates of white pieceSelected updated to new X & Y
+			     pieceSelected added to piecesToUpdate
+			     pieceSelected reset to null
+			     lock gets set to true
+			     nextMove gets set to "white"
+		  	     message gets set to "White player is selecting a piece to move"
+			If not true:
+			     message gets set to "Piece could not be moved to that square. Please choose another."
+		Outputs different messages if player doesnt match nextMove.
 
-	  
+		
