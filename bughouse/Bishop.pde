@@ -1,4 +1,4 @@
-public Bishop extends Piece {
+public class Bishop extends Piece {
 
   public Bishop() {
     this("white", 0, 0);
@@ -6,7 +6,7 @@ public Bishop extends Piece {
 
 
   public Bishop(String clr, int x_cor, int y_cor) {
-    super(clr, X_cor, y_cor);
+    super(clr, x_cor, y_cor);
   }
 
   public  void display(int shift) {
@@ -14,7 +14,7 @@ public Bishop extends Piece {
     image(f, (float)getX()*50+12.5+shift, (float)getY()*50+12.5, 25, 25);
   }
 
-  public directionInvalid(int dx, int dy) {
+  public boolean directionInvalid(int dx, int dy){
     if ((double)(dx) / (double)dy != 1 && (double)(dx) / (double)(dy) != -1) {
       return true;
     }
