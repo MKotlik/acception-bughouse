@@ -122,5 +122,5 @@ public abstract class Piece {
    *@param int dx is the change in the x direction
    *@param int dy is the change in the y direction
    */
-  public abstract boolean validate(Piece[][]array, int dx, int dy);
+  public abstract boolean validate(Piece[][]array, int cRow, int cCol);
 }

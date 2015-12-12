@@ -18,21 +18,21 @@ public class Pawn extends Piece {
    *@param int dy : vertical change
    *@param int dx : horizontal change
    */
-  public boolean validate(Piece[][]grid, int dy, int dx) {
-    if (dy != 1 || !(dx == -1 || dx ==1) ) {
+  public boolean validate(Piece[][]grid, int cRow, int cCol) {
+    if (cRow != 1 || !(cCol == -1 || cCol ==1) ) {
       return false;
     }
-    if (grid[getX()+dx][getY()+dy] == null) {
+    if (grid[getX()+cRow][getY()+cCol] == null) {
       return true;
     } else {
-      if (grid[getX()+dx][getY()+dy] != null) {
-        if (grid[getX()+dx][getY()+dy].getColor().equals(this.getColor())) {
+      if (grid[getX()+cRow][getY()+cCol] != null) {
+        if (grid[getX()+cRow][getY()+cCol].getColor().equals(this.getColor())) {
           return false;
         } else {
           return true;
         }
       }
-      return false;
+      return true;
     }
   }
 }

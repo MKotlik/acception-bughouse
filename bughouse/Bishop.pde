@@ -21,33 +21,33 @@ public class Bishop extends Piece {
     return false;
   }
 
-  public boolean validate(Piece[][]grid, int dy, int dx) {
-    if (directionInvalid(dx, dy)) {
+  public boolean validate(Piece[][]grid, int cRow, int cCol) {
+    if (directionInvalid(cCol, cRow)) {
       return false;
     }
-    if (dx < 0 && dy < 0) {
-      for (int i =0; i > dx; i--) {
+    if (cCol < 0 && cCol< 0) {
+      for (int i =0; i > cCol; i--) {
         if (grid[getX()+i][getY()+i] != null) {
           return false;
         }
       }
     }
-    if (dx < 0 && dy > 0) {
-      for (int i =0; i > dx; i--) {
-        if (grid[getX()+i][getY()-i] != null) {
-          return false;
-        }
-      }
-    }
-    if (dx > 0 && dy < 0) {
-      for (int i =0; i > dy; i--) {
+    if (cCol < 0 && cRow > 0) {
+      for (int i =0; i > cCol; i--) {
         if (grid[getX()-i][getY()+i] != null) {
           return false;
         }
       }
     }
-    if (dx > 0 && dy > 0) {
-      for (int i =0; i < dy; i++) {
+    if (cCol > 0 && cRow < 0) {
+      for (int i =0; i > cRow; i--) {
+        if (grid[getX()+i][getY()-i] != null) {
+          return false;
+        }
+      }
+    }
+    if (CCol > 0 && cRow > 0) {
+      for (int i =0; i < cCol; i++) {
         if (grid[getX()+i][getY()+i] != null) {
           return false;
         }

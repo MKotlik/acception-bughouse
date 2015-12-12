@@ -12,19 +12,19 @@ public class Rook extends Piece {
     super(clr, x_cor, y_cor);
   }
 
-  public boolean validate(Piece[][]grid, int dy, int dx) {
-    if ( dx != 0 ^ dy != 0) {
+  public boolean validate(Piece[][]grid, int cRow, int cCol) {
+    if ( cCol != 0 ^ cRow != 0) {
       return false;
     }
-    if ( dx == 0) {
-      if (dy < 0) {
-        for (int i =0; i > dy; i--) {
+    if ( cCol == 0) {
+      if (cRow < 0) {
+        for (int i =0; i > cRow; i--) {
           if (grid[getX()][getY()+i] != null) {
             return false;
           }
         }
       } else {
-        for (int i=0; i< dy; i++) {
+        for (int i=0; i< cRow; i++) {
           if (grid[getX()][getY()+i] != null) {
             return false;
           }
@@ -34,15 +34,15 @@ public class Rook extends Piece {
     }
 
 
-    if ( dy == 0) {
-      if (dx < 0) {
-        for (int i =0; i > dx; i--) {
+    if ( cRow == 0) {
+      if (cCol < 0) {
+        for (int i =0; i > cCol; i--) {
           if (grid[getX()+i][getY()] != null) {
             return false;
           }
         }
       } else {
-        for (int i=0; i< dx; i++) {
+        for (int i=0; i< cCol; i++) {
           if (grid[getX()+i][getY()] != null) {
             return false;
           }
@@ -50,7 +50,7 @@ public class Rook extends Piece {
       }
       return true;
     }
-    return false;
+    return true;
   }
   
 }
