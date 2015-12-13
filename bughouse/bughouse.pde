@@ -8,7 +8,7 @@ String currentAction;
 boolean lock;
 ArrayList<Piece> piecesToUpdate;
 Piece pieceSelected;
-String message;
+String message = "Welcome! Player1, please select a piece to move.";
 PFont f;
 
 void white1setup() {
@@ -76,10 +76,6 @@ void setup() {
   size(400, 500);
   Grid a = new Grid();
   new MsgBox();
-  f = createFont("Arial",16,true);
-  textFont(f,36);
-  fill(255);
-  text("Welcome!",100,450);
   white1setup();
   black1setup();
   for (int i=0; i<8; i++) {
@@ -104,10 +100,13 @@ void setup() {
   blackInv = new ArrayList<Piece>();
   piecesToUpdate = new ArrayList<Piece>();
   pieceSelected = null;
-  message = "White player, select a piece to move";
   nextMove = "white";
   currentAction = "select";
   lock = false;
+  f = createFont("Arial",16,true);
+  textFont(f,16);
+  fill(255);
+  text(message,20,450);
 }
 
 //This is working
@@ -135,9 +134,9 @@ void draw() {
   new Grid();
   new MsgBox();
   f = createFont("Arial",16,true);
-  textFont(f,36);
+  textFont(f,16);
   fill(255);
-  text("Welcome!",100,450);
+  text(message,20,450);
   for (int i=0; i<8; i++) {
     for (int i2 = 0; i2 < grid1[i].length; i2++) {
       if (grid1[i][i2] != null) {
@@ -158,6 +157,7 @@ void mouseClicked() {
       pieceSelected = clickedPiece;
       currentAction = "target";
       println("Selected.");
+      message = "Player 1, please select your target square.";
     } else if ((clickedPiece == null || clickedPiece.getColor().equals("black")) && nextMove.equals("white") && currentAction.equals("target")) {
       grid1[pieceSelected.getY()][pieceSelected.getX()].move(grid1, yPos, xPos);
       lock = true;
@@ -165,10 +165,12 @@ void mouseClicked() {
       pieceSelected = null;
       nextMove = "black";
       currentAction = "select";
+      message = "Player 2, please select a piece to move.";
     } else if (clickedPiece != null && clickedPiece.getColor().equals("black") && nextMove.equals("black") && currentAction.equals("select")) {
       pieceSelected = clickedPiece;
       currentAction = "target";
        println("Selected.");
+       message = "Player 2, please select your target square.";
     } else if ((clickedPiece == null || clickedPiece.getColor().equals("white")) && nextMove.equals("black") && currentAction.equals("target")) {
       grid1[pieceSelected.getY()][pieceSelected.getX()].move(grid1, yPos, xPos);
       lock = true;
@@ -176,6 +178,7 @@ void mouseClicked() {
       pieceSelected = null;
       nextMove = "white";
       currentAction = "select";
+      message = "Player 1, please select a piece to move.";
     } else {
       println("Await your turn please.");
     }
